@@ -1,0 +1,34 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Name="MainWindow1" x:Class="SC_Recognizer.MainWindow"
+        Title="SC Recognizer" Height="500" Width="1000" Icon="icon.ico">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="496*"/>
+            <ColumnDefinition Width="8"/>
+            <ColumnDefinition Width="496*"/>
+        </Grid.ColumnDefinitions>
+
+        <Menu Margin="0,0,-66,0" VerticalAlignment="Top" Grid.ColumnSpan="3">
+            <MenuItem Header="File">
+                <MenuItem Header="Create" HorizontalAlignment="Left" Width="140"/>
+                <MenuItem Header="Open" HorizontalAlignment="Left" Width="140"/>
+                <MenuItem Header="Delete" HorizontalAlignment="Left" Width="140"/>
+                <Separator HorizontalAlignment="Left" Height="1" Width="140"/>
+                <MenuItem Header="Exit" HorizontalAlignment="Left" Width="140"/>
+            </MenuItem>
+            <MenuItem Header="Edit">
+                <MenuItem Header="Process" HorizontalAlignment="Left" Width="140"/>
+                <MenuItem Header="Clear" HorizontalAlignment="Left" Width="140"/>
+            </MenuItem>
+            <MenuItem Header="Help"/>
+            <MenuItem Header="About"/>
+        </Menu>
+        <TextBox x:Name="CodeEditor" AcceptsReturn="True" AcceptsTab="True" Margin="0,18" Grid.Column="2" Background="#FFE7FBD8"/>
+
+        <GridSplitter HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Background="#FFD8D8D8" Width="5" Margin="0,18" ResizeDirection="Columns" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
+        <Image Height="433" Margin="0,18" VerticalAlignment="Top"/>
+        <StatusBar Height="18" Margin="0" VerticalAlignment="Bottom" Grid.ColumnSpan="3"/>
+    </Grid>
+</Window>
