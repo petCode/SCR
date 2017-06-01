@@ -12,11 +12,10 @@
 
         <Menu Margin="0,0,-66,0" VerticalAlignment="Top" Grid.ColumnSpan="3">
             <MenuItem Header="File">
-                <MenuItem Header="Create" HorizontalAlignment="Left" Width="140"/>
-                <MenuItem Header="Open" HorizontalAlignment="Left" Width="140"/>
-                <MenuItem Header="Delete" HorizontalAlignment="Left" Width="140"/>
+                <MenuItem Header="Open" HorizontalAlignment="Left" Width="140" Click="MenuItem_Click"/>
+                <MenuItem Header="Close" HorizontalAlignment="Left" Width="140" Click="MenuItem_Click_1"/>
                 <Separator HorizontalAlignment="Left" Height="1" Width="140"/>
-                <MenuItem Header="Exit" HorizontalAlignment="Left" Width="140"/>
+                <MenuItem Header="Exit" HorizontalAlignment="Left" Width="140" Click="MenuItem_Click_2"/>
             </MenuItem>
             <MenuItem Header="Edit">
                 <MenuItem Header="Process" HorizontalAlignment="Left" Width="140"/>
@@ -28,7 +27,7 @@
         <TextBox x:Name="CodeEditor" AcceptsReturn="True" AcceptsTab="True" Margin="0,18" Grid.Column="2" Background="#FFE7FBD8"/>
 
         <GridSplitter HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Background="#FFD8D8D8" Width="5" Margin="0,18" ResizeDirection="Columns" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
-        <Image Height="433" Margin="0,18" VerticalAlignment="Top"/>
+        <Image x:Name="SourceImage" Height="433" Margin="0,18" MouseWheel="SourceImage_MouseWheel"/>
         <StatusBar Height="18" Margin="0" VerticalAlignment="Bottom" Grid.ColumnSpan="3"/>
     </Grid>
 </Window>
