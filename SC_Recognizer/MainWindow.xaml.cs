@@ -17,7 +17,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Drawing;
 using System.Runtime.Serialization;
-using using System.Xml;
+using System.Xml;
 
 namespace SC_Recognizer
 {
@@ -166,6 +166,29 @@ namespace SC_Recognizer
                 doc.Save(saveFileDialog1.FileName);
             }
    
+        }
+
+        private void MenuItem_Click_5(object sender, RoutedEventArgs e)
+        {
+            const string message =
+                @"Main menu buttons functions:
+
+1. File - common work with source image file
+    1.1 Open - open source image file and show in work area
+    1.2 Close - close opened source image file
+    1.3 Exit - close the program
+2. Edit
+    2.1 Process - process opened source image file
+    2.2 Export result - save results as XML file
+3. Help - current window
+4. About - info about the program
+            ";
+
+            const string caption = "Help";
+
+            var result = System.Windows.Forms.MessageBox.Show(message, caption,
+                                         MessageBoxButtons.OK,
+                                         MessageBoxIcon.Information);
         }
 
 

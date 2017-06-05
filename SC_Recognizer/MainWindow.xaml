@@ -22,7 +22,7 @@
                 <Separator HorizontalAlignment="Left" Height="1" Width="200"/>
                 <MenuItem Header="Export result" HorizontalAlignment="Left" Width="200" Click="MenuItem_Click_3" />
             </MenuItem>
-            <MenuItem Header="Help"/>
+            <MenuItem Header="Help" Click="MenuItem_Click_5"/>
             <MenuItem Header="About"/>
         </Menu>
         <TextBox x:Name="Output" AcceptsReturn="True" AcceptsTab="True" Margin="0,18" Grid.Column="2" Background="#FFEEEEEE"/>
