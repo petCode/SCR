@@ -191,6 +191,21 @@ namespace SC_Recognizer
                                          MessageBoxIcon.Information);
         }
 
+        private void MenuItem_Click_6(object sender, RoutedEventArgs e)
+        {
+            const string message =@"
+         Anton Yakubov, PZ-16s
+Dnipropetrovsk National University
+                        2017
+            ";
+
+            const string caption = "About";
+
+            var result = System.Windows.Forms.MessageBox.Show(message, caption,
+                                         MessageBoxButtons.OK,
+                                         MessageBoxIcon.Information);
+        }
+
 
 
     }
