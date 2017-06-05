@@ -31,7 +31,7 @@ namespace SC_Recognizer
         public static extern int Demo(string filename);
 
         [DllImport("SCR_OpenCV.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int Process(string filename);
+        public static extern int Process(string filename_tr, string filename_ex);
         
         #endregion
 
@@ -103,7 +103,7 @@ namespace SC_Recognizer
         private void MenuItem_Click_4(object sender, RoutedEventArgs e)
         {
             if (ImageFileName != null)
-                Process(ImageFileName);
+                Process(ImageFileName, "C:\\Users\\think\\Desktop\\Диплом\\s.jpg");
         }
 
         private void MenuItem_Click_5(object sender, RoutedEventArgs e)
