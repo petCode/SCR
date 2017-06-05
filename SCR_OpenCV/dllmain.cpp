@@ -1,4 +1,5 @@
 // dllmain.cpp : Defines the entry point for the DLL application.
+#define _CRT_SECURE_NO_DEPRECATE
 #include "stdafx.h"
 
 BOOL APIENTRY DllMain( HMODULE hModule,
