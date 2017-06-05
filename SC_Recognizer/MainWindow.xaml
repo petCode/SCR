@@ -19,11 +19,6 @@
             </MenuItem>
             <MenuItem Header="Edit">
                 <MenuItem Header="Process" HorizontalAlignment="Left" Width="200" Click="MenuItem_Click_4"/>
-                <Separator HorizontalAlignment="Left" Height="1" Width="200"/>
-                <MenuItem Header="Threshold conversion" HorizontalAlignment="Left" Width="200" Click="MenuItem_Click_5"/>
-                <MenuItem Header="Show threshold result" HorizontalAlignment="Left" Width="200"/>
-                <Separator HorizontalAlignment="Left" Height="1" Width="200"/>
-                <MenuItem Header="Demo" HorizontalAlignment="Left" Width="200" Click="MenuItem_Click_3"/>
             </MenuItem>
             <MenuItem Header="Help"/>
             <MenuItem Header="About"/>

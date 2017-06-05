@@ -95,19 +95,11 @@ namespace SC_Recognizer
             SourceImage.RenderTransform = new ScaleTransform(scale, scale);
         }
 
-        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void MenuItem_Click_4(object sender, RoutedEventArgs e)
         {
             if (ImageFileName != null)
                 Process(ImageFileName, "C:\\Users\\think\\Desktop\\Диплом\\s.jpg");
         }
 
-        private void MenuItem_Click_5(object sender, RoutedEventArgs e)
-        {
-        }
     }
 }
