@@ -31,7 +31,7 @@ namespace SC_Recognizer
         public static extern int Demo(string filename);
 
         [DllImport("SCR_OpenCV.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int Process(string filename_tr, string filename_ex);
+        public static extern bool Process(string filename_tr, string filename_ex);
         
         #endregion
 
@@ -97,9 +97,45 @@ namespace SC_Recognizer
 
         private void MenuItem_Click_4(object sender, RoutedEventArgs e)
         {
-            if (ImageFileName != null)
-                Process(ImageFileName, "C:\\Users\\think\\Desktop\\Диплом\\s.jpg");
+            List<string> founded_fonts_folders = new List<string>();
+
+            using (var fbd = new FolderBrowserDialog())
+            {
+                DialogResult result = fbd.ShowDialog();
+
+                if (result == System.Windows.Forms.DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath) && (ImageFileName != null))
+                {
+                    string[] dirs = Directory.GetDirectories(fbd.SelectedPath);
+
+                    foreach (var dir in dirs)
+                    {
+                        string[] files = Directory.GetFiles(dir);
+                    
+                        foreach (var filename in files)
+                        {
+                            if (Process(ImageFileName, filename))
+                                founded_fonts_folders.Add(System.IO.Path.GetDirectoryName(filename));
+                        }
+                    }
+                }
+            }
+
+            if (founded_fonts_folders.Count > 0)
+            {
+                StringBuilder sb = new StringBuilder();
+
+                sb.Append("Some elements from the next font folders were found:");
+
+                foreach (var font_folder in founded_fonts_folders)
+                {
+                    sb.Append("=> " + font_folder + "\n");
+                }
+            }
+            else
+                Output.Text = "No searched items found";
         }
+
+
 
     }
 }

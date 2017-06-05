@@ -23,7 +23,7 @@
             <MenuItem Header="Help"/>
             <MenuItem Header="About"/>
         </Menu>
-        <TextBox x:Name="CodeEditor" AcceptsReturn="True" AcceptsTab="True" Margin="0,18" Grid.Column="2" Background="#FFE7FBD8"/>
+        <TextBox x:Name="Output" AcceptsReturn="True" AcceptsTab="True" Margin="0,18" Grid.Column="2" Background="#FFEEEEEE"/>
 
         <GridSplitter HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Background="#FFD8D8D8" Width="5" Margin="0,18" ResizeDirection="Columns" Grid.Column="1" ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
         <Image x:Name="SourceImage" Height="433" Margin="0,18" MouseWheel="SourceImage_MouseWheel"/>
