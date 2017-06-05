@@ -19,6 +19,8 @@
             </MenuItem>
             <MenuItem Header="Edit">
                 <MenuItem Header="Process" HorizontalAlignment="Left" Width="200" Click="MenuItem_Click_4"/>
+                <Separator HorizontalAlignment="Left" Height="1" Width="200"/>
+                <MenuItem Header="Export result" HorizontalAlignment="Left" Width="200" Click="MenuItem_Click_3" />
             </MenuItem>
             <MenuItem Header="Help"/>
             <MenuItem Header="About"/>

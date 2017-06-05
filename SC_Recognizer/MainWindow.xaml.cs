@@ -16,6 +16,8 @@ using System.IO;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Drawing;
+using System.Runtime.Serialization;
+using using System.Xml;
 
 namespace SC_Recognizer
 {
@@ -40,6 +42,8 @@ namespace SC_Recognizer
         double scale = 1.0;
         double minScale = 0.5;
         double maxScale = 5.0;
+
+        List<string> founded_fonts_folders = new List<string>();
 
         public MainWindow()
         {
@@ -97,8 +101,6 @@ namespace SC_Recognizer
 
         private void MenuItem_Click_4(object sender, RoutedEventArgs e)
         {
-            List<string> founded_fonts_folders = new List<string>();
-
             using (var fbd = new FolderBrowserDialog())
             {
                 DialogResult result = fbd.ShowDialog();
@@ -133,6 +135,37 @@ namespace SC_Recognizer
             }
             else
                 Output.Text = "No searched items found";
+        }
+
+        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
+        {
+            if(founded_fonts_folders.Count == 0)
+                return;
+
+            XmlDocument doc = new XmlDocument();
+
+            XmlElement newElem = doc.CreateElement("source_filename");
+            newElem.InnerText = ImageFileName;
+            doc.DocumentElement.AppendChild(newElem);
+
+            foreach (var fontname in founded_fonts_folders)
+            {
+                newElem = doc.CreateElement("font");
+                newElem.InnerText = fontname;
+                doc.DocumentElement.AppendChild(newElem);
+            }
+
+            
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "xml|*.xml";
+            saveFileDialog1.Title = "Save an xml data file";
+            saveFileDialog1.ShowDialog();
+
+            if(saveFileDialog1.FileName != "")
+            {
+                doc.Save(saveFileDialog1.FileName);
+            }
+   
         }
 
 
