@@ -50,8 +50,8 @@ namespace SC_Recognizer
         {
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
 
-            dlg.DefaultExt = ".bmp";
-            dlg.Filter = "Image documents (.bmp)|*.bmp";
+            dlg.DefaultExt = ".jpg";
+            dlg.Filter = "Image documents (.jpg)|*.jpg";
 
             Nullable<bool> result = dlg.ShowDialog();
 
@@ -97,23 +97,7 @@ namespace SC_Recognizer
 
         private void MenuItem_Click_3(object sender, RoutedEventArgs e)
         {
-            var families = Fonts.GetFontFamilies(@"C:\WINDOWS\Fonts\Arial.TTF");
-            foreach (System.Windows.Media.FontFamily family in families)
-            {
-                var typefaces = family.GetTypefaces();
-                foreach (Typeface typeface in typefaces)
-                {
-                    GlyphTypeface glyph;
-                    typeface.TryGetGlyphTypeface(out glyph);
-                    IDictionary<int, ushort> characterMap = glyph.CharacterToGlyphMap;
 
-                    foreach (KeyValuePair<int, ushort> kvp in characterMap)
-                    {
-                        Console.WriteLine(String.Format("{0}:{1}", kvp.Key, kvp.Value));
-                    }
-
-                }
-            }
         }
 
         private void MenuItem_Click_4(object sender, RoutedEventArgs e)
@@ -124,39 +108,6 @@ namespace SC_Recognizer
 
         private void MenuItem_Click_5(object sender, RoutedEventArgs e)
         {
-            //if (ImageFileName != null)
-              //  ThresholdConversion(ImageFileName);
-
-            Bitmap bmp = new Bitmap(ImageFileName);
-
-            RectangleF rectf = new RectangleF(0, 0, 100, 100);
-
-            Graphics g = Graphics.FromImage(bmp);
-
-            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-            g.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            System.Drawing.FontFamily fontFamily = new System.Drawing.FontFamily(@"C:\Windows\Fonts\symbol.ttf");
-            g.DrawString("abcdefghijklmnopqrstuvwxyz1234567890", new Font(fontFamily, 20), System.Drawing.Brushes.Black, rectf);
-            
-            g.Flush();
-
-            using (MemoryStream memory = new MemoryStream())
-            {
-                bmp.Save(memory, System.Drawing.Imaging.ImageFormat.Png);
-                memory.Position = 0;
-                BitmapImage bitmapImage = new BitmapImage();
-                bitmapImage.BeginInit();
-                bitmapImage.StreamSource = memory;
-                bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
-                bitmapImage.EndInit();
-
-                SourceImage.Source = bitmapImage;
-            }
-
-            //SourceImage.Image = bmp;
         }
-
-        
     }
 }

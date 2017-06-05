@@ -9,7 +9,6 @@
 #include <highgui.h>
 #define _CRT_SECURE_NO_DEPRECATE
 #include "iostream"
-//#include "mat.hpp"
 
 using namespace std;
 using namespace cv;
@@ -60,46 +59,17 @@ extern "C" int __cdecl Process(LPCWSTR filename)
 
     cvFindContours(dst, storage, &contours, sizeof(CvContour), CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE, cvPoint(0, 0));
 
-    cvDrawContours(src, contours, CV_RGB(255, 0, 0), CV_RGB(0, 255, 0), 2, 1, CV_AA, cvPoint(0, 0));
+    //cvDrawContours(src, contours, CV_RGB(255, 0, 0), CV_RGB(0, 255, 0), 2, 1, CV_AA, cvPoint(0, 0));
+    //->1
+    cvNamedWindow("cvProcess", 1);
+    cvShowImage("cvProcess", dst);
 
+    cvNamedWindow("cvProcess2", 1);
+    cvShowImage("cvProcess2", src);
+
+    cvWaitKey(0);
+    cvDestroyAllWindows();
+
+    //.//return *dst;
     return 0;
 }
-
-//extern "C" vector<uchar> __cdecl ThresholdConversion(LPCWSTR filename)
-//{
-//    //cvThreshold
-//    IplImage *src = 0, *dst = 0, *dst2 = 0;
-//
-//    src = cvLoadImage((char*)filename, 0);
-//
-//    assert(src != 0);
-//
-//    dst = cvCreateImage(cvSize(src->width, src->height), IPL_DEPTH_8U, 1);
-//
-//    cvThreshold(src, dst, 125, 250, CV_THRESH_BINARY);
-//
-//    //cvNamedWindow("cvThreshold", 1);
-//    //cvShowImage("cvThreshold", dst);
-//
-//    //cvWaitKey(0);
-//
-//    cvReleaseImage(&src);
-//
-//    //cvDestroyAllWindows();
-//
-//    //.//return *dst;
-//    //return 0;
-//
-//    //byte resultImage;
-//    
-//    vector<uchar> buf;
-//    vector<uchar> byteArray;
-//    Mat matImage = dst;
-//    imencode(".bmp", matImage, buf);
-//    //int size = buf.size();
-//    copy(buf.begin(), buf.end(), byteArray);
-//    //matImage.ToBitmap();
-//
-//    return byteArray;
-//}
-
